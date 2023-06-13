@@ -19,15 +19,15 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 7.0
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet publish --configuration Release --os win --self-contained true /p:PublishTrimmed=true /p:PublishSingleFile=true
+      run: dotnet publish --configuration Release --os win --self-contained true /p:PublishTrimmed=true /p:PublishSingleFile=true --version
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
         name: winbuild
-        path: bin/Release/net6.0/win-x64/publish 
+        path: bin/Release/net7.0/win-x64/publish 
