@@ -23,7 +23,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet publish --configuration Release --os win --self-contained true /p:PublishTrimmed=true /p:PublishSingleFile=true --version
+      run: dotnet publish --configuration Release --os win --self-contained true /p:PublishTrimmed=true /p:PublishSingleFile=true
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Archive code coverage results
